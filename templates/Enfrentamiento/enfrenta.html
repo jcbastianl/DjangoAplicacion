@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Enfrentamiento{% endblock %}
+
+{% block contenido %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="text">Enfrentamiento</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-warning btn-sm" value="Guardar Enfrentamiento">
+        </form>
+        {% if mensaje %}
+        <div class="alert alert-success mt-3">
+            {{ mensaje }}
+        </div>
+        {% endif %}
+        <br/>
+        <a href="{% url 'Inicio' %}" class="btn btn-secondary">Regresar</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h2>Tabla de Enfrentamientos</h2>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Equipo1</th>
+                        <th>VS</th>
+                        <th>Equipo2</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Lugar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for n in Enfrentamiento %}
+                        <tr>
+                            <td>{{ n.equipo1 }}</td>
+                            <td>VS</td>
+                            <td>{{ n.equipo2 }}</td>
+                            <td>{{ n.fecha }}</td>
+                            <td>{{ n.hora }}</td>
+                            <td>{{ n.lugar }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

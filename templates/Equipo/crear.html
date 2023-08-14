@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block titulo %} Tablas {% endblock %}
+
+{% block contenido %}
+<div class='card'>
+    <div class='card-body'>
+        <h2>Tabla de Ligas</h2>
+        <hr>
+        <table class="tabla table-striped table-hover table-responsive">
+            <tr>
+                <th>Nombre</th>
+                <th>Modo</th>
+            </tr>
+            {% for n in ligas %}
+                <tr>
+                    <td>{{ n.nombre }}</td>
+                    <td>{{ n.modo }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class='card'>
+    <div class='card-body'>
+        <h2>Tabla de Equipos</h2>
+        <hr>
+        <table class='tabla table-striped table-hover table-responsive'>
+            <tr>
+                <th>Nombre</th>
+                <th>Liga</th>
+            </tr>
+            {% for n in equipos %}
+                <tr>
+                    <td>{{ n.nombre }}</td>
+                    <td>{{ n.ligas }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class='card'>
+    <div class='card-body'>
+        <h2>Tabla de Jugadores</h2>
+        <hr>
+        <table class='tabla table-striped table-hover table-responsive'>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Equipo</th>
+                <th>Posicion</th>
+                <th>Numero</th>
+            </tr>
+            {% for n in jugadores %}
+                <tr>
+                    <td>{{ n.nombre }}</td>
+                    <td>{{ n.apellido }}</td>
+                    <td>{{ n.edad }}</td>
+                    <td>{{ n.equipo.nombre }}</td>
+                    <td>{{ n.posicion }}</td>
+                    <td>{{ n.camiseta }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+

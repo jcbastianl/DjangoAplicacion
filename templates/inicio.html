@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+ <title>{% block titulo %} Inicio {% endblock %}</title>
+
+{% block contenido %}
+<br/>
+    <div class="p-5 bg-light">
+        <div class="container">
+            <h1 class="display-3">Bienvenidos al sitio de la gestión de Equipos</h1>
+            <p class="lead">Empezar a ingresar Equipos</p>
+            <hr class="my-4">
+            <p>Aun no se que poner aqui .</p>
+            <p class="lead"></p>
+        </div>
+    </div>
+       <br/>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h1 class="text-center">Iniciar sesión</h1>
+                    </div>
+                    <div class="card-footer text-center">
+                        <!-- Botón de inicio de sesión con Google -->
+                        {% load socialaccount %}
+                        <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-block">Iniciar sesión con Google</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

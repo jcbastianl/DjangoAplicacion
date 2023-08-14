@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+<head>
+<br/>
+<br/>
+<br/>
+<br/>
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h1 class="text-center">Iniciar sesión</h1>
+                    </div>
+                    <div class="card-footer text-center">
+                        {% load socialaccount %}
+                        <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-block">Iniciar sesión con Google</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>
